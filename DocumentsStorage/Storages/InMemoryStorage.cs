@@ -1,25 +1,19 @@
-﻿using DocumentStorage.Interfaces;
+﻿using System.Collections.Concurrent;
+using DocumentStorage.Interfaces;
 using DocumentStorage.Models;
 
 namespace DocumentStorage.Storages;
 
-public class InMemoryStorage : IStorage
+public sealed class InMemoryStorage : IStorage
 {
-    private readonly Dictionary<string, DocumentStorageModel> _storage = new();
+    private readonly ConcurrentDictionary<string, DocumentStorageModel> _storage = new();
 
     public async Task<bool> SaveDocument(DocumentStorageModel document, CancellationToken cancellationToken)
     {
         return await Task.Run(() =>
         {
-            try
-            {
-                _storage[document.Id] = document;
-                return true;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
+            _storage.AddOrUpdate(document.Id, document, (_, _) => document);
+            return true;
         }, cancellationToken);
     }
 

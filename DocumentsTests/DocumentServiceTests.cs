@@ -9,7 +9,7 @@ using Xunit;
 
 namespace DocumentsTests;
 
-public class DocumentServiceTests
+public sealed class DocumentServiceTests
 {
     private readonly IStorage _storage;
     private readonly IDocumentService _service;

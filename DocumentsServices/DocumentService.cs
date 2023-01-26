@@ -6,7 +6,7 @@ using DocumentStorage.Models;
 
 namespace DocumentServices;
 
-public class DocumentService : IDocumentService
+public sealed class DocumentService : IDocumentService
 {
     private readonly IStorage _storage;
 

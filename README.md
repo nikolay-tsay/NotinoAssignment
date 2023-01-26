@@ -32,11 +32,11 @@ Create production-ready ASP.NET Core service app that provides API for storage a
 </li>
 <li>To add another storage option:
     <ul>
-        <li>Create new StorageClass and implement IStorage interface</li>
+        <li>Create new storage class and implement IStorage interface</li>
         <li>Create new value in StorageTypes enum</li>
         <li>Add registration of a new storage in <b>DocumentsApi/Extensions/StartupExtension.cs</b></li>
     </ul>
 </li>
 <li>StorageType is specified in <b>appsettings.json</b> and can't be changed during runtime</li>
-<li>Unit tests are placed in <b>DocumentsTests</b> project and cover <b>DocumentService</b> logic</li>
+<li>Unit tests are placed in <b>DocumentsTests</b> project and cover logic of <b>DocumentService</b> and existing storages</li>
 </ul>

@@ -52,6 +52,8 @@ public static class StartupExtension
             case StorageTypes.Hdd:
                 builder.Services.AddSingleton<IStorage, HddStorage>();
                 break;
+            default:
+                throw new Exception("No storage option specified");
         }
     }
 }

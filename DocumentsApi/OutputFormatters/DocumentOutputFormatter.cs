@@ -10,9 +10,9 @@ public sealed class DocumentOutputFormatter : OutputFormatter
     private readonly IDictionary<string, Func<DocumentOutputModel, Task<string>>> _serializers = 
         new Dictionary<string, Func<DocumentOutputModel, Task<string>>>
     {
-        {"application/json", (doc) => doc.ToJson() },
-        {"application/xml", (doc) => doc.ToXml() },
-        {"application/x-msgpack", (doc) => doc.ToMessagePack() }
+        {"application/json", doc => doc.ToJson() },
+        {"application/xml", doc => doc.ToXml() },
+        {"application/x-msgpack", doc => doc.ToMessagePack() }
     };
     
     public DocumentOutputFormatter()
