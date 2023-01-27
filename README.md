@@ -1,5 +1,5 @@
 ﻿
-<h1>Assignement</h1>
+<h1>Assignment</h1>
 Create production-ready ASP.NET Core service app that provides API for storage and retrive documents in different formats
 <ul>
 <li>The documents are send as a payload of POST request in JSON format and could be modified via PUT verb.</li>
